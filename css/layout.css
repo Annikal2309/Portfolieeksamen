@@ -1,0 +1,17 @@
+/*************** Reset *********************/
+* {
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.billede_1-1-1-1 {
+  grid-template-columns: repeat(1fr, 1fr, 1fr, 1fr);
+  grid-auto-rows: 900px;
+  /* gap: 50px; */
+  justify-items: center;
+  display: flex;
+  width: 330px;
+  height: 330px;
+  object-fit: cover;
+}
