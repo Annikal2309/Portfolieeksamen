@@ -36,6 +36,11 @@ p {
   color: rgb(136, 16, 16);
 }
 
+body {
+  background: rgb(255, 231, 231);
+  background: linear-gradient(90deg, rgba(255, 231, 231, 1) 0%, rgba(243, 170, 172, 1) 23%, rgba(255, 224, 250, 1) 69%);
+}
+
 hr {
   margin-right: auto;
   margin-left: auto;
@@ -55,10 +60,6 @@ hr {
   position: absolute;
   top: 0;
   right: 150px;
-}
-
-body {
-  background-image: url(/img/baggrund.jpeg);
 }
 
 header {
