@@ -1,23 +1,35 @@
-const carousel = document.querySelector(".carousel");
-const items = document.querySelectorAll(".carousel-item");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
+const track = document.querySelector(".carousel-track");
+const slides = Array.from(track.children);
+const prevButton = document.getElementById("prevBtn");
+const nextButton = document.getElementById("nextBtn");
 
-let currentIndex = 0;
-
-// Move to a specific slide
-function updateCarousel() {
-  carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-// Move to the next slide
-nextBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % items.length; // Loop back to start
-  updateCarousel();
+// Arrange the slides next to each other
+slides.forEach((slide, index) => {
+  slide.style.left = `${index * 100}%`;
 });
 
-// Move to the previous slide
-prevBtn.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + items.length) % items.length; // Loop to end
-  updateCarousel();
+const moveToSlide = (track, currentSlide, targetSlide) => {
+  track.style.transform = `translateX(-${targetSlide.style.left})`;
+  currentSlide.classList.remove("current");
+  targetSlide.classList.add("current");
+};
+
+// Click next button
+nextButton.addEventListener("click", () => {
+  const currentSlide = track.querySelector(".current");
+  const nextSlide = currentSlide.nextElementSibling;
+
+  if (nextSlide) {
+    moveToSlide(track, currentSlide, nextSlide);
+  }
+});
+
+// Click prev button
+prevButton.addEventListener("click", () => {
+  const currentSlide = track.querySelector(".current");
+  const prevSlide = currentSlide.previousElementSibling;
+
+  if (prevSlide) {
+    moveToSlide(track, currentSlide, prevSlide);
+  }
 });
