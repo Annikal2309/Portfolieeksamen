@@ -6,12 +6,19 @@
 }
 
 .billede_1-1-1-1 {
-  grid-template-columns: repeat(1fr, 1fr, 1fr, 1fr);
-  grid-auto-rows: 900px;
+  /* grid-template-columns: repeat(1fr, 1fr, 1fr, 1fr); */
+  /* grid-auto-rows: 900px; */
   /* gap: 50px; */
   justify-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
   display: flex;
-  width: 330px;
   height: 330px;
-  object-fit: cover;
+  margin-top: 150px;
+}
+
+.billede_1-1-1-1 img {
+  width: 1500px;
+  height: auto;
+  /* object-fit: cover; */
 }
